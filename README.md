@@ -5,11 +5,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## [See project](https://itcicrud.herokuapp.com).
 
-<br />
-
 #### User and pass to login in the project:
 * `user: frontenditci@gmail.com`
 * `pass: frontend1234`
+
+<br />
 
 ## Available Scripts
 
