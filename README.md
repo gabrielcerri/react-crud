@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## [See project](https://itcicrud.herokuapp.com).
+
+<br />
+
+#### User and pass to login in the project:
+* `user: frontenditci@gmail.com`
+* `pass: frontend1234`
+
 ## Available Scripts
 
 In the project directory, you can run:
