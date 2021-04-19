@@ -8,34 +8,32 @@ export const Table = ({ users, removeData }) => {
     <table className="table table-dark table-hover mw-100">
       <thead>
         <tr>
-          <th key="name">Name</th>
-          <th key="email">Email</th>
-          <th key="username">Username</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Username</th>
         </tr>
       </thead>
       <tbody>
-        {
-          users.length
-            ? users.map((user) => (
-                <tr>
-                  <td key="name"> {user.name}</td>
-                  <td key="email"> {user.email}</td>
-                  <td key="username"> {user.username}</td>
-                  <td key="delete" className="button delete">
-                    <FontAwesomeIcon
-                      size="1x"
-                      icon={faUserMinus}
-                      onClick={() => removeData(user.id)}
-                    ></FontAwesomeIcon>
-                  </td>
-                </tr>
-              ))
-            : (
+        {users.length ? (
+          users.map((user) => (
+            <tr key={user.id}>
+              <td> {user.name}</td>
+              <td> {user.email}</td>
+              <td> {user.username}</td>
+              <td className="button delete">
+                <FontAwesomeIcon
+                  size="1x"
+                  icon={faUserMinus}
+                  onClick={() => removeData(user.id)}
+                ></FontAwesomeIcon>
+              </td>
+            </tr>
+          ))
+        ) : (
           <tr>
             <td>Aún no hay usuarios registrados</td>
           </tr>
-        ) 
-        }
+        )}
       </tbody>
     </table>
   );
