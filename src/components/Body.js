@@ -154,7 +154,7 @@ export const Body = () => {
                 ) : null}
               </div>
 
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   disabled={!(formik.isValid && formik.dirty)}
                   type="submit"
