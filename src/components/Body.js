@@ -20,24 +20,24 @@ export const Body = () => {
 
   const { loading, users, error } = state;
 
-  const doFetchUsers = async () => {
-    setState({ loading: true, users: [], error: null });
-
-    try {
-      setTimeout(async () => {
-        const { data } = await fetchData();
-        setState({ loading: false, users: data, error: null });
-      }, 1500);
-    } catch (e) {
-      setState({ loading: false, users: [], error: e.message });
-    }
-  };
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   React.useEffect(() => {
+    const doFetchUsers = async () => {
+      setState({ loading: true, users: [], error: null });
+
+      try {
+        setTimeout(async () => {
+          const { data } = await fetchData();
+          setState({ loading: false, users: data, error: null });
+        }, 1500);
+      } catch (e) {
+        setState({ loading: false, users: [], error: e.message });
+      }
+    };
+
     doFetchUsers();
   }, []);
-
-  const { isModalOpen, openModal, closeModal } = useModal();
 
   const formik = useFormik({
     initialValues: {
@@ -54,12 +54,12 @@ export const Body = () => {
         formData
       );
       setState({ users: [...users, newUser.data] });
-      console.log(newUser.data);
+      // console.log(newUser.data);
     },
   });
 
   const removeData = async (id) => {
-    await await axios.delete("http://jsonplaceholder.typicode.com/users/" + id);
+    await axios.delete("http://jsonplaceholder.typicode.com/users/" + id);
     setState({ users: [...users].filter((user) => user.id !== id) });
   };
 
@@ -79,7 +79,7 @@ export const Body = () => {
     </div>;
   }
 
-  console.log(formik.errors);
+  // console.log(formik.errors);
 
   return (
     <>
@@ -154,7 +154,7 @@ export const Body = () => {
                 ) : null}
               </div>
 
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   disabled={!(formik.isValid && formik.dirty)}
                   type="submit"
